@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="w-4/5  justify-center mx-auto shadow rounded p-5">
+  <h1 class="display-4">
+    Athlete database
+  </h1>
+  <div>The program registers an athlete into the database and validates the input. It then gives the option to search by sport.
+  </div>
+
+  <div>
+    The results will appear at the bottom of the form
+  </div>
+  <p class="font-bold my-3">
+    Please enter name, age and sport
+  </p>
+  <div>
+        <form action="/register" method="post">
+          <div class="form-row align-items-center">
+
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInput">Name</label>
+              <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Name" name="name">
+            </div>
+
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInputGroup">Age</label>
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Age" name="age">
+            </div>
+            <p>
+            <div class="col-auto my-3">
+              Select Sport</div>
+              <div class="lg:flex space-x-4 justify-center">
+
+              {% for sport in sports %}
+              <input class="mx-2" type="radio" name="sport" value="{{ sport }}"> <strong>{{ sport
+                }}</strong></input>
+              {% endfor %}
+            </div>
+            </p>
+
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary my-2">Register</button>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+        {% include "names-final.html" %}
+
+        <div class="bg-light p-2"> <strong>Search by Sport</strong> <br>
+          <p></p>
+          <form action="/search" method="post" class="bg-light">
+            {% for sport in sports %}
+            <button class="mx-2" type="submit" name="sport2" value="{{ sport }}"> <strong>{{ sport }}</strong></button>
+            {% endfor %}
+          </form>
+
+          <br>
+          {% include "search_registrants.html" %}
+        </div>
+
+        <p>
+          <form action = "/" method="get" class="my-2">
+            <input type="image"  tootlip="return home" src="static/home.png" width="20">
+          </form>
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h1 class="text-2xl font-bold my-2">
+    Hello and welcome to my portfolio
+</h1>
+<h5 class="my-4">
+    Below you will find some programs created using Python, Flask, Jinja, HTML and Tailwind CSS.
+</h5>
+
+<h5 class="my-4">
+    For further projects with Django and Angular, please visit my <a href="https://github.com/vtoch23" target="_blank" class="underline">GitHub</a> page.
+</h5>
+
+<a href="static/Vanya Tochevska Software Developer CV - Python.pdf" class="bg-black text-white p-2 mb-2"> Download CV
+</a>
+
+<div id="cards_landscape_wrap-2" class="mt-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 p-4">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <a href="/investment">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img src="static/invest.jpg" alt="" class="object-cover object-top" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Investment Calculator</h6>
+                                <p>The program calculates a long term property investment</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <a href="/pic">
+                    <div class="card-flyer max-h-14">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img src="static/id-sm.jpg" class="object-cover object-top" alt="" />
+                            </div>
+
+                            <div class="text-container">
+                                <h6>validate PIC</h6>
+                                <p>The program validates a Personal Identification Code</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <a href="/names-db">
+                    <div class="card-flyer max-h-14">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img src="static/athlete-sm.jpg" class="object-cover object-top" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Athlete database</h6>
+                                <p>This program stores names, ages and sports into a dictionary</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <a href="/forbidden">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img src="static/forbidden.jpeg" class="object-cover object-top" alt="" />
+                            </div>
+
+                            <div class="text-container">
+                                <h6>Forbidden characters</h6>
+                                <p>Cleans up extra characters from a submitted sentence</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <a href="/password">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img src="static/password.jpeg" class="object-cover object-top" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Password Generator</h6>
+                                <p>Generate a password by a given number of characters</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <a href="/lottery">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img src="static/lottery-sm.jpg" class="object-cover object-top" alt="" />
+                            </div>
+                            <div class="text-container">
+                                <h6>Play the Lottery </h6>
+                                <p>Select numbers, play the lottery and check matching numbers</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <a href="https://github.com/vtoch23/portfolio" attributes-list download target="_blank"><button type="button"
+            class="btn bg-black text-white mb-3" aria-pressed="false" autocomplete="off">
+            View Source Code
+        </button></a>
+
+    <script>
+        function downloadFile() {
+            window.open("https://github.com/vtoch23/portfolio")
+        }
+    </script>
+
+</div>
+
+</div>
+
+{% endblock %}

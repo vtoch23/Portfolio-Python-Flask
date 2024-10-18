@@ -1,0 +1,17 @@
+
+    <div>
+        <p></p>
+        <div class="container">
+            {% if code and check == True %}
+            
+                    <strong>{{ code }} is a valid PIC. </strong>
+            {% elif code and check != True %}   
+                    <strong style="color: red">{{ code }} is not a valid PIC. </strong>
+            {% else %}        
+                <p></p>
+            {% endif %}    
+        </div>
+      </div>
+
+    
+

@@ -1,0 +1,57 @@
+   <body style="text-align: left">
+
+   <table class="table table-striped table-sm" id="main_width sm-table">
+        <tbody>
+            <tr id="mytable main_width">
+                <th scope="row">Initial purchase price</th>
+                <td> £{{ purchase_price }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Initial deposit</th>
+                <td>£{{ calculated_deposit }} </td>
+            </tr>
+            <tr>
+                <th scope="row">Initial mortgage amount</th>
+                
+                <td> £{{ mortgage }}</td>
+            </tr>
+            <tr>
+                <td>Loan to Value</td>
+                <td> {{ ltv1 }}%</td>
+            </tr>
+            <tr>
+                <td> Previous annual income required</td>
+                <td> £{{ salary }}</td>
+            </tr>
+            <tr>
+                <td> Previous monthly payment</td>
+                <td>£{{ payment }}</td>
+            </tr>
+            <tr>
+                <td> Current outstanding mortgage</td>
+                <td> £{{ outstanding }} </td>
+            </tr>
+            <tr>
+                <td> Current property</td>
+                <td> £{{ newPrice }}</td>
+            </tr>
+            <tr>
+                <td> Current equity</td>
+                <td> £{{ equity }}</td>
+            </tr>
+            <tr>
+                <td> Current deposit %</td>
+                <td> {{ new_deposit }}%</td>
+            </tr>
+            <tr>
+                <td> Current Loan to Value possibly</td>
+                <td> {{ ltv2 }}%</td>
+            </tr>
+            <tr>
+                <td> Annual income required</td>
+                <td> £{{ new_salary }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    </body>

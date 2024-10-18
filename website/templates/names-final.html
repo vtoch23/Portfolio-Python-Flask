@@ -1,0 +1,30 @@
+
+<h6 class="text-muted">
+    {{message}}
+</h6>
+<div class="bg-light.bg-gradient mx-auto sm:max-w-full"></div>
+    <table class="table border-separate space-x-2">
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Age </th>
+                <th> Sport </th>
+            </tr>
+        </thead>
+
+        <tbody>
+    
+            {% for name in registrants %}
+                
+        <tr>
+            <td> {{ name }}</td>
+            {% for item in registrants[name] %}
+            <td> {{ item }}</td>
+            {% endfor %}
+            <td> {{ item }}</td>
+        </tr>
+        
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

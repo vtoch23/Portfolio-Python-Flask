@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1 class="display-4"> Error </h1>
+<p> {{message}} </p>
+<img alt="Grumpy cat" src="static/cat.jpeg">
+
+<p>
+    <form action = "/names-db" method="get">
+        <button type="submit" class="btn btn-dark">Return</button>
+    </form>
+</p>
+{% endblock %}
+    

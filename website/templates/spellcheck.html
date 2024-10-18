@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h1 class="display-4">
+    Spellchecker
+</h1>
+<table>
+    <tr>
+        <td>
+            <h6> The program takes a string input and validates each word against a .txt file which contains a large
+                number of common words. If the word isn't there it marks as an error and then uses difflib to provide
+                suggestions.
+            </h6>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="medium">
+                The results will appear at the bottom of the form
+            </p>
+        </td>
+    </tr>
+</table>
+<p class="medium font-semibold my-3">
+    Please type in words and include intentional spelling errors
+</p>
+
+<form action="/spellcheck-done" method="post">
+    <input autocomplete="off" autofocus name="sentence" placeholder="Words" type="string">
+    <input value="Submit" type="submit">
+
+</form>
+{% include 'spellcheck-done.html' %}
+<p>
+<form action="/" method="get" class="my-3">
+    <input type="image" tootlip="return home" src="static/home.png" width="20">
+</form>
+</p>
+
+
+
+{% endblock %}

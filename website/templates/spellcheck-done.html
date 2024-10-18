@@ -1,0 +1,21 @@
+
+<div>
+    <p></p>
+    {% if suggestions and errors %}
+    <label class="sr-only" for="inlineFormInputGroup" style="color:brown"><strong> The following errors were spotted: </strong></label>
+    <div class="container">
+        {% for key, value in suggestions.items() %}
+            <p>Error: <strong>{{key}}</strong><br>
+                Suggestion: 
+                {% for word in value %}
+                <strong> {{word}} </strong>
+                    {% endfor %}
+                </p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+
+
+

@@ -1,0 +1,30 @@
+
+<p class="text-muted">
+    {{ message1 }}
+</p>
+<div class="bg-light">
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Age </th>
+                <th> Sport </th>
+            </tr>
+        </thead>
+
+        <tbody>
+    
+            {% for name in people %}
+                
+        <tr>
+            <td> {{ name }}</td>
+            {% for item in people[name] %}
+            <td> {{ item }}</td>
+            {% endfor %}
+            <td> {{ item }}</td>
+        </tr>
+        
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

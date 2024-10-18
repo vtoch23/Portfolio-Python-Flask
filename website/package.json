@@ -1,0 +1,18 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "postcss static/stylesheet.css --use autoprefixer -o public/build/tailwind.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "css": "^3.0.0",
+    "postcss-cli": "^11.0.0",
+    "tailwind": "^4.0.0"
+  }
+}

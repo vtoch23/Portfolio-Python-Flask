@@ -1,0 +1,77 @@
+<body>
+
+    <table class="table table-striped table-sm small" id="main_width mytable">
+        <tbody >
+            <tr id="mytable main_width" style="text-align: center;" >
+                <td colspan="2" style="font-size: 12pt; color: white" class="bg-primary p-2" id="top"> 
+                    Purchase price: <strong>£{{purchase_price}}</strong>, deposit: <strong>£{{deposit}}</strong>, mortgage term: <strong>{{mortgage_term}} years</strong>, interest rate: <strong>{{rate}}%</strong>, fixed period: <strong>{{fixed_period}} years</strong>, annual price increase: <strong>{{increase}}%</strong> </td>
+            </tr>
+            {% if dep2 != True -%}
+            <p class="small" style="color: red; font-size: 12pt;"> Your deposit is insufficient for obtaining mortgage. You need a minimum of <strong>£{{ dep }}</strong> (5% of the purchase price).</p>
+            {% endif %}
+            <tr id="mytable main_width">
+                <td scope="row" class="small">Purchase price</th>
+                <th width="280"> £{{ purchase_price }}</td>
+            </tr>
+            <tr>
+                <td scope="row" class="small">Deposit</th>
+                <th>{{ calculated_deposit }}% </td>
+            </tr>
+            <tr>
+                <td scope="row" class="small">Loan to Value</td>
+                <th> {{ ltv1 }}%</td>
+            </tr>
+
+            <tr>
+                <td scope="row" class="small">Mortgage amount</th>
+
+                <th> £{{ mortgage }}</td>
+            </tr>
+            
+            <tr>
+                <td scope="row" class="small"> Annual income required</td>
+                <th> £{{ salary }}</td>
+            </tr>
+            <tr>
+                <td scope="row"  class="small"> Monthly payment</td>
+                <th>£{{ payment }}</td>
+            </tr>
+            <tr>
+                <td scope="row" class="small"> Outstanding mortgage at the end of fixed term</td>
+                <th> £{{ outstanding }} </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped table-sm small" id="main_width mytable">
+        <tbody>
+            <tr id="mytable main_width">
+                <td colspan="2" style="text-align: center; vertical-align: middle; color: white" class="bg-secondary">
+                    <p>
+                        <strong>Estimated future figures at the end of the fixed term</strong>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="small"> Estimated property value at the end of fixed term based on annual price increase of {{increase}}%</td>
+                <th width="280"> £{{ newPrice }}</td>
+            </tr>
+            <tr>
+                <td scope="row" class="small"> Equity at the end of fixed term</td>
+                <th> £{{ equity }}</td>
+            </tr>
+            <tr>
+                <td scope="row" class="small"> Maximum available deposit percentage</td>
+                <th> {{ new_deposit }}%</td>
+            </tr>
+            <tr>
+                <td scope="row" class="small"> New Loan to Value</td>
+                <th> {{ ltv2 }}%</td>
+            </tr>
+            <tr>
+                <td scope="row" class="small"> Annual income required for remortgage</td>
+                <th> £{{ new_salary }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>

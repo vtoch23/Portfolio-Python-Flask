@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="w-4/5  justify-center mx-auto shadow rounded">
+<h6 class="display-4">
+    Valid Personal Identification Code
+</h6>
+<div class="d-flex justify-content-center">
+    This program validates a Finnish Personal Identity Codes (PIC)
+</div>
+
+<div class="mx-auto max-w p-3">
+    <div class="text-l"> Finnish PICs follow the format <strong>ddmmyyXyyyz</strong>, where:
+        <ul class="text-left mx-auto p-3">
+        <li class="list-disc"><strong>ddmmyy</strong> contains a valid date
+            of birth, <strong></li>
+        <li class="list-disc">X</strong> is the marker for century, which is either <strong>+</strong> (1800s), <strong>-</strong> (1900s) or
+            <strong>A</strong>
+            (2000s).</li>
+        <li class="list-disc"><strong>yyy</strong> is the personal identifier which can be any number between 002 and 899 (odd for men, even for women), and </li>
+        <li class="list-disc"><strong>z</strong> is a control character.</li>
+        </ul>
+    </div>
+        <p class="my-3">The control character is calculated by taking the nine-digit number created by the <strong>date of
+                birth</strong> and the <strong>personal identifier</strong>, dividing this by 31, and multiplying the series of numbers remaining after the decimal place by 31. We then take the result and select the
+            character at the index specified by the number from the string 0123456789ABCDEFHJKLMNPRSTUVWXY. For
+            example, if the number was 12, the control character would be C</p>
+            <p>Example:</p>
+            <p>230827906/31 = 7446061.48387097</p>
+            <p>0.48387097 * 31 = 15</p>
+            <p>The index is 15 therefore the control character is F.</p>
+        <p> Here are some valid PICs: 230827-906F, 120488+246L, 310823A9877.</p>
+    </div>
+</div>
+{% include 'pic-valid.html' %}
+<form action="/pic_check" method="post" id="main_width mytable contactForm1" class="bg-light">
+    <br>
+    <div class="text-center" id="mytable">
+        <label class="text-left mb-3">Please enter a PIC</label>
+        <input type="int" name="code" class="form-control max-w-md mx-auto" id="exampleFormControlInput1" placeholder="Personal Identification Code">
+        <br>
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    </div>
+
+</form>
+    
+</div>  
+ 
+
+
+<form action = "/" method="get" class="my-2">
+    <input type="image"  tootlip="return home" src="static/home.png" width="20">
+  </form>
+
+
+{% endblock %}

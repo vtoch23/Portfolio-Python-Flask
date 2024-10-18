@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="w-4/5  justify-center mx-auto shadow rounded p-3">
+    <h1 class="text-2xl font-bold">
+        Cleaning forbidden characters
+    </h1>
+    <h6>The program takes a string from the user's input via a form, then uses a function which checks each character
+        against a group of forbidden characters and finally provides the cleaned up version.</h6>
+    </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="medium my-3">
+                Please enter a sentence inserting some of the following special characters: <strong>!?:,.$%&@<>
+                        </strong>
+            </p>
+        </td>
+    </tr>
+    </table>
+    <form action="/forbidden" method="post">
+        <input class="rounded form-input max-w-100  border-slate-300 shadow-sm my-3" autocomplete="off" autofocus
+            name="sentence" placeholder="Type in a sentence" type="text">
+        <input value="Clean up" type="submit">
+    </form>
+
+    {% if filtered %}
+    <strong>{{ filtered }}</strong>
+    {% endif %}
+
+    <p>
+    <form action="/" method="get" class="my-2">
+        <input type="image" tootlip="return home" src="static/home.png" width="20">
+    </form>
+    </p>
+
+</div>
+
+{% endblock %}
