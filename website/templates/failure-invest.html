@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1 class="display-4"> Invalid input </h1>
+<p> {{message}} </p>
+<img alt="Grumpy cat" src="static/cat.jpeg" class="mx-auto">
+
+<p>
+    <form action = "/investment" method="get">
+        <button type="submit" class="btn btn-dark">Return</button>
+    </form>
+</p>
+{% endblock %}
+    

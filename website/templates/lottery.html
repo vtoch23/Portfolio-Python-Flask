@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="w-4/5  justify-center mx-auto shadow rounded">
+    <h1 class="text-2xl font-bold">
+        Lottery</h1>
+        <div class="p-3">The program takes seven numbers via a form input and stores them as variables. The random module is used
+            to produce 7 random numbers from 1 to 40 for the lottery draw, which is sent to a function along with the
+            list of the user's numbers. The function checks each number against the drawn numbers and returns the number
+            of hits and the matched numbers. They are sent back to the HTML as variables using Jinja syntax.
+        </div>
+        <div>
+            The results will appear at the bottom of the form
+        </div>
+        <div class="small my-3 font-bold">
+            Please enter 7 numbers from 1 to 40
+        </div>
+
+
+        <div>
+            <form action="/lottery-play" method="post">
+                <div class="lg:flex space-x-2 max-w-11 mx-auto justify-center content-center p-4">
+
+                    <input type="text" name="number1" class="form-control form-control-sm" placeholder="number 1">
+
+                    <input type="text" name="number2" class="form-control form-control-sm" placeholder="number 2">
+
+                    <input type="text" name="number3" class="form-control form-control-sm" placeholder="number 3">
+
+                    <input type="text" name="number4" class="form-control form-control-sm" placeholder="number 4">
+
+                    <input type="text" name="number5" class="form-control form-control-sm" placeholder="number 5">
+
+                    <input type="text" name="number6" class="form-control form-control-sm" placeholder="number 6">
+
+                    <input type="text" name="number7" class="form-control form-control-sm" placeholder="number 7">
+
+                </div>
+
+                <button type="submit" class="btn btn-primary my-3">Check Result</button>
+            </form>
+        </div>
+</div>
+<p>
+    <form action="/" method="get" class="my-3">
+        <input type="image" tootlip="return home" src="static/home.png" width="20">
+    </form>
+    </p>
+{% endblock %}

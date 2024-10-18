@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+{% block body %}    
+
+
+<div id="cards_landscape_wrap-2">
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+              <a href="">
+                  <div class="card-flyer">
+                      <div class="text-box">
+                          <div class="image-box">
+                              <img src="https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" alt="" />
+                          </div>
+                          <div class="text-container">
+                              <h6>Title 01</h6>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                          </div>
+                      </div>
+                  </div>
+              </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+              <a href="">
+                  <div class="card-flyer">
+                      <div class="text-box">
+                          <div class="image-box">
+                              <img src="https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg" alt="" />
+                          </div>
+                          <div class="text-container">                                    
+                              <h6>Title 02</h6>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                          </div>
+                      </div>
+                  </div>
+              </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+              <a href="">
+                  <div class="card-flyer">
+                      <div class="text-box">
+                          <div class="image-box">
+                              <img src="https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png" alt="" />
+                          </div>
+
+                          <div class="text-container">
+                              <h6>Title 03</h6>
+                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                          </div>
+                      </div>
+                  </div>
+              </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+              <a href="">
+                  <div class="card-flyer">
+                      <div class="text-box">
+                          <div class="image-box">
+                              <img src="https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg" alt="" />
+                          </div>
+                          <div class="text-container">
+                              <h6>Title 04</h6>
+                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                          </div>
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="position-relative bottom-0 start-50 translate-middle-x" data-toggle="buttons">
+    <div >Change background colour </div> <br>
+    <label class="btn btn-secondary active">
+      <input type="radio" name="options" id="purple" > Rose
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="yellow" > Yellow
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="blue"> Blue
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="white"> White
+      </label>
+  </div>
+
+<br>
+<br>
+
+
+  <form>
+    <div class="row">
+      <div class="col-md-1">
+        <input type="text" class="form-control" placeholder="First name">
+      </div>
+      <div class="col-md-1">
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
+      <div class="col-md-1">
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
+      <div class="col-md-1">
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
+      <div class="col-md-1">
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
+      <div class="col-md-1">
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
+      <div class="col-md-1">
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
+    </div>
+  </form>
+
+
+
+  
+<script>
+let body = document.querySelector('body');
+document.querySelector('#purple').addEventListener('click', function() {
+card.style.backgroundColor = '#ffd7c6';
+});
+
+document.querySelector('#blue').addEventListener('click', function() {
+card.style.backgroundColor = '#d9ebff';
+});
+
+document.querySelector('#yellow').addEventListener('click', function() {
+card.style.backgroundColor = '#fffde5';
+});
+
+document.querySelector('#white').addEventListener('click', function() {
+card.style.backgroundColor = 'white';
+});
+
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+        {% endblock %}
+
+       

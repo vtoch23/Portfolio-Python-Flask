@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block body %}
+<strong>The numbers drawn today are:</strong>
+<div class="container">
+    <div class="row justify-content-md-center">
+        {% for number in randoms %}
+            <div class="col-md-auto">
+            {% if number in hits %}
+                <b>{{ number }}</b>
+            {% else %}
+                {{number}}
+            {% endif %}
+            </div>
+        {% endfor %}
+</div>
+</div>
+<br>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <strong>The numbers you played are:</strong>
+        <div class="row justify-content-md-center">
+
+            {% for number in numbers %}
+            {% if number in hits %}
+            <div class="col-md-auto"> <b>{{number}}</b></div>
+
+            {% else %}
+            <div class="col-md-auto"> {{number}}</div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<h3 class="large">
+    You nailed the following <strong> {{ hits_number }} </strong> numbers:
+    {% for hit in hits %}
+    <strong>{{ hit }} </strong>
+    {% endfor %}
+</h3>
+
+
+<p>
+<form action="/lottery" method="get">
+    <input type="submit" value="Try again">
+</form>
+</p>
+
+<p>
+<form action="/" method="get" class="my-2">
+    <input type="image" tootlip="return home" src="static/home.png" width="20">
+</form>
+</p>
+
+{% endblock %}
