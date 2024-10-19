@@ -86,7 +86,8 @@ def investment_calc():
         return render_template("failure-invest.html", message="Please enter a valid price increase")
     try:
         rate = request.form.get("rate")
-        rate = round((float(rate)/100), 2)
+        rate = round((float(rate)/100), 4)
+        print(rate)
     except ValueError:
         return render_template("failure-invest.html", message="Please enter a valid rate")
     
