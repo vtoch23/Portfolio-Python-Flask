@@ -1,0 +1,2 @@
+Flask==3.0.3
+numpy-financial==1.0.0
