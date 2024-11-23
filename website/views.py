@@ -3,7 +3,6 @@ import sqlite3
 import random
 import difflib
 from .models import LotteryNumbers, generate_strong_password, filter_forbidden, Investment, is_it_valid, wordlist
-import re
 views = Blueprint('views', __name__)
 
 
@@ -19,11 +18,7 @@ db = con.cursor()
 class InvalidInput(Exception):
     pass
 
-SPORTS = [
-    "Basketball",
-    "Football",
-    "Volleyball"
-]
+
 
 registrants = {}
 
@@ -81,7 +76,7 @@ def investment_calc():
         return render_template("failure-invest.html", message="Please enter a valid fixed period")
     try:
         increase = request.form.get("increase")
-        increase = int(increase)
+        increase = float(increase)
     except ValueError:
         return render_template("failure-invest.html", message="Please enter a valid price increase")
     try:
@@ -132,6 +127,11 @@ def files():
 
 @views.route("/names-db", methods=["POST", "GET"])
 def name_db():
+    SPORTS = [
+        "Basketball",
+        "Football",
+        "Volleyball"
+    ]
     return render_template("name_age.html", sports=SPORTS)
 
 
@@ -140,7 +140,11 @@ def register():
     name = request.form.get("name")
     age = request.form.get("age")
     sport = request.form.get("sport")
-
+    SPORTS = [
+        "Basketball",
+        "Football",
+        "Volleyball"
+    ]
     if not name or not age or sport not in SPORTS:
         return render_template("failure.html", message="Missing input")
     else:
@@ -158,6 +162,11 @@ def register():
 def search_names():
     sport = request.form.get("sport2")
     people = {}
+    SPORTS = [
+        "Basketball",
+        "Football",
+        "Volleyball"
+    ]
     for name, value in registrants.items():
         currentage = value[0]
         currentsport = value[1]
@@ -176,6 +185,11 @@ def search_names():
 
 @views.route("/test", methods=["POST", "GET"])
 def test():
+    SPORTS = [
+        "Basketball",
+        "Football",
+        "Volleyball"
+    ]
     return render_template("test.html", sport=SPORTS, registrants=registrants)
 
 
