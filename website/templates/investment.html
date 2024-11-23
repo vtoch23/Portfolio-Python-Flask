@@ -5,7 +5,7 @@
     Investment Calculator
 </h1>
 
-<div class="w-full">
+<div class="w-3/4 mx-auto">
     <div class="my-2">
         The program uses numpy and numpy_financial formulas to calculate an estimated future value of an investment by
         providing information on equity and required salary.
@@ -36,61 +36,84 @@
     </div>
 </div>
 
-<div className="card-footer absolute bottom-1 left-0 right-0 text-center text-muted dark:text-white mt-3">
+<!-- <div className="card-footer absolute bottom-1 left-0 right-0 text-center text-muted dark:text-white mt-3">
     <form action="/investment" method="get">
         <button type="image" tootlip="edit numbers" src="static/home.png" width="20" class="my-2">Back</button>
     </form>
-</div>
+</div> -->
 
 {% endif %}
 
-{% if not deposit %}
-<form action="/investment-calc" method="post" id="myform" class="bg-light" data-autosubmit>
-    <br>
+<form class="w-2/4 mx-auto shadow bg-teal-400" action="/investment-calc" method="post" id="myform" class="bg-light" data-autosubmit>
     <div class="mb-2 text-left p-2" id="mytable">
         <label class="form-label text-left">Purchase price</label>
-        <input type="int" name="price" class="form-control" id="exampleFormControlInput1" placeholder="Purchase price">
+        <input type="int" name="price" class="form-control" id="exampleFormControlInput1" placeholder="Purchase price" value="{{purchase_price}}">
     </div>
 
     <div class="mb-2 text-left p-2" id="mytable">
         <label class="sr-only" for="inlineFormInputGroup">How much deposit do you have? (minimum 5% of the purchase
             price) </label>
-        <input type="int" class="form-control" id="inlineFormInputGroup" placeholder="Deposit amount" name="deposit">
+        <input type="int" class="form-control" id="inlineFormInputGroup" placeholder="Deposit amount" name="deposit" value="{{deposit}}">
     </div>
 
     <div class="mb-2 text-left p-2" id="mytable">
         <label class="sr-only" for="inlineFormInputGroup">Desired full term of mortgage in years (Consider a
             maximum term of up to your 70th birthday)</label>
-        <input type="int" class="form-control" id="inlineFormInputGroup" placeholder="Duration of mortgage" name="term">
+        <input type="int" class="form-control" id="inlineFormInputGroup" placeholder="Duration of mortgage" name="term" value="{{mortgage_term}}">
     </div>
 
     <div class="mb-2 text-left p-2" id="mytable">
         <label class="sr-only" for="inlineFormInputGroup">Interest rate as a whole or a decimal number.</label>
-        <input type="float" class="form-control" id="inlineFormInputGroup" placeholder="Interest rate" name="rate">
+        <input type="float" class="form-control" id="inlineFormInputGroup" placeholder="Interest rate" name="rate" value="{{rate}}">
     </div>
 
     <div class="mb-2 text-left" id="mytable">
         <label class="sr-only md-auto p-2" for="inlineFormInputGroup">Desired initial fixed rate period (2, 5 or 10
             years). </label>
-        <input type="radio" name="fixed" value="2"> <strong>2 years</strong>
-        <input type="radio" name="fixed" value="5"> <strong>5 years</strong>
-        <input type="radio" name="fixed" value="10"><strong> 10 years</strong>
+            {% if fixed_period %}
+                {% if fixed_period == 2 %}
+                    <input type="radio" name="fixed" value="2" checked> <strong>2 years</strong>
+                    {% else %}
+                    <input type="radio" name="fixed" value="2" aria-selected="false"> <strong>2 years</strong>
+                {% endif %}
+                {% if fixed_period == 5 %}
+                    <input type="radio" name="fixed" value="5" checked> <strong>5 years</strong>
+                    {% else %}
+                    <input type="radio" name="fixed" value="5" aria-selected="false"> <strong>5 years</strong>
+                {% endif %}
+                {% if fixed_period == 10 %}
+                    <input type="radio" name="fixed" value="10" checked> <strong>10 years</strong>
+                    {% else %}
+                    <input type="radio" name="fixed" value="10" aria-selected="false"> <strong>10 years</strong>
+                {% endif %}
+            {% else %}
+            <input type="radio" name="fixed" value="2" aria-selected="false"> <strong>2 years</strong>
+            <input type="radio" name="fixed" value="5" aria-selected="false"> <strong>5 years</strong>
+            <input type="radio" name="fixed" value="10" aria-selected="false"> <strong>10 years</strong>
+            {% endif %}
     </div>
 
     <div class="mb-2 text-left p-2" id="mytable">
         <label class="sr-only" for="inlineFormInputGroup"> Estimated annual price increase in percent (
-            2,3, 5, 10 etc.). Enter just the number.</label>
-        <input type="int" class="form-control" id="inlineFormInputGroup" placeholder="Annual price increase"
-            name="increase">
+            1.5, 2, 2.5 etc.). Enter just the number.</label>
+        <input type="float" class="form-control" id="inlineFormInputGroup" placeholder="Annual price increase"
+            name="increase" value="{{increase}}">
     </div>
 
     <br>
 
     <div class="col-auto bg-light" id="middle">
-        <button type="submit" class="btn btn-primary mb-4 mt-1">View calculation</button>
+        
+        <button type="submit" class="bg-pink-600 text-white mb-4 mt-2 p-2 rounded-sm">
+            {% if deposit %}
+            Edit calculation
+            {% endif %}
+            {% if not deposit %}
+            View calculation
+            {% endif %}
+        </button>
 
 </form>
-{% endif %}
 
 <div className="card-footer absolute bottom-1 left-0 right-0 text-center text-muted dark:text-white mt-3">
     <form action="/" method="get">
