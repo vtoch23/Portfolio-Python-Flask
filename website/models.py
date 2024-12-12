@@ -16,8 +16,8 @@ def wordlist():
     return words
 
 
-def filter_forbidden(string: str, forbidden: str):
-    new_string = "".join([character for character in string if character not in forbidden])
+def filter_forbidden(string: str):
+    new_string = "".join([character for character in string if character.isalpha()])
     return new_string
 
 
@@ -82,7 +82,7 @@ class Investment:
     def calc_deposit(self):
         try:
             deposit_amount = (self.deposit/self.price)*100
-            print(f"the deposit amount sent to app is: {deposit_amount}")
+            print(f"the deposit amount submitted is: {deposit_amount}")
             return int(deposit_amount)
         except Exception as er:
             return (f"error while calculating deposit {er.args}")
