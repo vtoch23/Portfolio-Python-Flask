@@ -87,7 +87,6 @@ def investment_calc():
     try:
         rate = request.form.get("rate")
         rate = round((float(rate)/100), 4)
-        print(rate)
     except ValueError:
         return render_template("failure-invest.html", message="Please enter a valid rate")
     
@@ -137,22 +136,36 @@ def name_db():
 
 @views.route("/register", methods=["POST", "GET"])
 def register():
-    name = request.form.get("name")
-    age = request.form.get("age")
-    sport = request.form.get("sport")
+    try:
+        name = request.form.get("name")
+        if not name.isalpha() or not name:
+            return render_template("failure.html", message="Please enter a valid name")
+    except:
+        return render_template("failure.html", message="Please try again")
+    try:
+        age = int(request.form.get("age"))
+    except:
+        return render_template("failure.html", message="Please enter a valid age")
+    try:
+        sport = request.form.get("sport")
+        if not sport.isalpha() or not sport:
+            return render_template("failure.html", message="Please enter a valid sport")
+    except:
+        return render_template("failure.html", message="Please enter a valid sport")
 
-    if not name or not age or sport not in SPORTS:
-        return render_template("failure.html", message="Missing input")
-    else:
-        registrants[name] = []
-        registrants[name].append(age)
-        registrants[name].append(sport)
+    registrants[name] = []
+    registrants[name].append(age)
+    registrants[name].append(sport)
     if len(registrants) > 0:
         message = "The names have been submitted into the database"
     elif len(registrants) == 0:
-        message = "Plese submit an athlete"
+        message = "Please submit an athlete"
     return render_template("name_age.html", registrants=registrants, sports=SPORTS, message=message)
 
+@views.route("/deregister", methods=["POST"])
+def deregister():
+    name = request.form.get("name")
+    registrants[name] = []
 
 @views.route("/search", methods=["POST", "GET"])
 def search_names():
@@ -204,7 +217,7 @@ def forbidden():
 def forbidden_clean():
     sentence = request.form.get("sentence")
     if sentence:
-        filtered = filter_forbidden(sentence, "*!?:,.£$%&@<>")
+        filtered = filter_forbidden(sentence)
         return filtered
     else:
         pass
