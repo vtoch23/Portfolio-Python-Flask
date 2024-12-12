@@ -12,7 +12,6 @@ module.exports = {
           70: '70%',
           80: '80%',
           90: '90%',
-          // 100% is not required as max-w-full will be present by default
         }
       }
     },
